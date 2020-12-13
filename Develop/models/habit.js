@@ -1,8 +1,9 @@
 module.exports = function (sequelize, DataTypes) {
-    var Habits = sequelize.define("Habits", {
+    let Habit = sequelize.define('Habits', {
         name: DataTypes.STRING,
         displayGlobal: DataTypes.BOOLEAN,
+        checked: DataTypes.JSON
     });
-    Habits.hasOne(User);
-    return Habits;
-};
+    Habit.hasOne(User);
+    return Habit;
+}
