@@ -4,7 +4,7 @@ var path = require("path");
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
-const db = require("../models");
+//const db = require("../models");
 
 module.exports = function(app) {
 
@@ -28,27 +28,12 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
-
-    db.Habits.findAll({
-      where: {
-        id: req.params.id
-      }
-    })
-      .then(function(dbHabits) {
-        res.json(dbHabits);
-      });
+  });
+  //I am wondering here do we still need the "isAuthenticated"?
+  app.get("/globalFeeds", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/globalFeeds.html"));
   });
 
-  app.get("/globalFeeds", function(req, res) {
-    //If user wants to see other users habits send them to globalFeeds page
-    db.Habits.findAll({
-      where: {
-        displayGlobal = 1
-      }
-    })
-      .then(function(dbHabits) {
-        res.json(dbHabits);
-      });
-  });
+  
 
 };

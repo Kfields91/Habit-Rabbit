@@ -46,4 +46,63 @@ module.exports = function(app) {
       });
     }
   });
+
+  app.get("/globalFeeds", function(req, res) {
+    //Get route for user wants to see other users habits
+    db.Habit.findAll({
+      where: {
+        displayGlobal = 1
+      }
+    })
+      .then(function(dbHabits) {
+        res.json(dbHabits);
+      });
+  });
+  app.get("/members", function(req, res) {
+    //Get route for user wants to see all their habits 
+    db.Habit.findAll({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(function(dbHabits) {
+        res.json(dbHabits);
+      });
+  });
+
+  //Post route for saving a new habit
+  app.post("/members", function(req, res) {
+    console.log(req.body);
+    db.Habit.create({
+      title: req.body.title,//needs to be edited to math ours
+      body: req.body.body,//needs to be edited to math ours
+      category: req.body.category//needs to be edited to math ours
+    })
+      .then(function(dbHabits) {
+        res.json(dbHabits);
+      });
+  });
+  // DELETE route for deleting habits
+  app.delete("/members/:id", function(req, res) {
+    db.Habit.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(function(dbHabits) {
+        res.json(dbHabits);
+      });
+  });
+  // PUT route for updating habits
+  app.put("/members", function(req, res) {
+    db.Habit.update(req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      })
+      .then(function(dbHabits) {
+        res.json(dbHabits);
+      });
+  });
 };
