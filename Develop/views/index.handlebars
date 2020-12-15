@@ -1,0 +1,15 @@
+<ul>
+    {{#each Habit}}
+    <li>
+        <p>Type: {{name}}</p>
+        <p>Display: {{displayGlobal}}
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </p>
+    </li>
+    {{/each}}
+</ul>
+
+{{!-- unsure if this toggle will work. Needs to tested --}}
