@@ -47,17 +47,20 @@ module.exports = function(app) {
     }
   });
 
-  app.get("/globalFeeds", function(req, res) {
+  app.get("/globalFeeds", async function(req, res) {
     //Get route for user wants to see other users habits
-    db.Habit.findAll({
-      where: {
-        displayGlobal = 1
+    if(data.length >= 1){
+        db.Habit.findAll({
+          where: {
+            displayGlobal: true
+          }
+        })
+          .then(function(dbHabits) {
+            res.json(dbHabits);
+          });
       }
-    })
-      .then(function(dbHabits) {
-        res.json(dbHabits);
-      });
   });
+
   app.get("/members", function(req, res) {
     //Get route for user wants to see all their habits 
     db.Habit.findAll({
