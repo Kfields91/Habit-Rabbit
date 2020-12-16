@@ -1,5 +1,3 @@
-var Sequelize = require('sequelize');
-
 module.exports = function (sequelize, DataTypes) {
     let Habit = sequelize.define('Habits', {
         name: DataTypes.STRING,
