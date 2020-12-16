@@ -1,9 +1,10 @@
 module.exports = function (sequelize, DataTypes) {
-    let Habit = sequelize.define('Habits', {
+    var Habit = sequelize.define("Habit", {
         name: DataTypes.STRING,
-        displayGlobal: DataTypes.BOOLEAN,
-        checked: DataTypes.JSON
+        displayGlobal: DataTypes.BOOLEAN
     });
-    Habit.hasOne(User);
+    Habit.associate = function (models) {
+        Habit.hasOne(models.User);
+    }
     return Habit;
 }
