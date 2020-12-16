@@ -4,6 +4,8 @@ var path = require("path");
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
+//const db = require("../models");
+
 module.exports = function(app) {
 
   app.get("/", function(req, res) {
@@ -27,5 +29,11 @@ module.exports = function(app) {
   app.get("/members", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
+  //I am wondering here do we still need the "isAuthenticated"?
+  app.get("/globalFeeds", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/globalFeeds.html"));
+  });
+
+  
 
 };
