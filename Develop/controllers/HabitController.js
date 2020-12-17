@@ -2,15 +2,26 @@ var express = require("express");
 var router = express.Router();
 
 var habit = require("../models/habit.js");
+var habitEvent = require("../models/habitEvent.js");
 
 router.get("/", function (req, res) {
     habit.all(function (data) {
         var hbsObject = {
-            habits: data
-            //habits needs to be named in line with what is in the views folder
+            habit: data
+            //habit needs to be named in line with what is in the views folder
+            //nest in habitsEvent obj to this route
         };
         console.log(hbsObject);
         res.render("members", hbsObject);
+    });
+    habitEvent.all(function (data) {
+        var eventObject = {
+            habitEvent: data
+            //habitEvent needs to be named in line with what is in the views folder
+            //nest in habitsEvent obj to this route
+        };
+        console.log(eventObject);
+        res.render("members", eventObject);
     });
 });
 
@@ -20,14 +31,15 @@ router.post("/api/habits", function (req, res) {
     });
 });
 
-router.put("/api/habits/:id", function (req, res) {
+router.put("/api/habitsEvent/:id", function (req, res) {
     var condition = "id = " + req.params.id;
 
     console.log("condition", condition);
 
-    habit.update(
+    habitEvent.update(
         {
-            checked: req.body.checked
+            // date: req.body
+            //need to figure out what req.body obj looks like to pull out the correct data for this put request
         },
         condition,
         function (result) {
