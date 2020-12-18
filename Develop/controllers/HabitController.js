@@ -25,6 +25,10 @@ router.get("/", function (req, res) {
     });
 });
 
+router.get("/members", function(req,res){
+    res.render("index");
+});
+
 router.post("/api/habits", function (req, res) {
     habit.create(["name", "displayGlobal"], [req.body.name, req.body.displayGlobal], function (result) {
         res.json({ id: result.insertId });
