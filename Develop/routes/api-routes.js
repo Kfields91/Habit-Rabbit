@@ -47,30 +47,33 @@ module.exports = function(app) {
     }
   });
 
-  app.get("/globalFeeds", async function(req, res) {
+  app.get("/globalFeeds", function(req, res) {
     //Get route for user wants to see other users habits
-    if(data.length >= 1){
+    //if(req.length >= 1){
         db.Habit.findAll({
           where: {
-            displayGlobal: true
+            //displayGlobal: true
           }
         })
           .then(function(dbHabits) {
             res.json(dbHabits);
           });
-      }
+      //}
   });
 
   app.get("/members", function(req, res) {
     //Get route for user wants to see all their habits 
-    db.Habit.findAll({
-      where: {
-        id: req.params.id
-      }
-    })
-      .then(function(dbHabits) {
-        res.json(dbHabits);
+    //if(req.length >= 1){
+      db.Habit.findAll({
+        where: {
+          //id: req.params.id
+        }
+      })
+        .then(function(dbHabits) {
+          res.json(dbHabits);
       });
+    //}
+    
   });
 
   //Post route for saving a new habit
