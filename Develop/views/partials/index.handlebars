@@ -1,4 +1,4 @@
-<h2>Welcome {{this.user}}</h2>
+<h2 class="d-flex justify-content-center">Welcome {{this.user}}</h2>
 
 <form>
     <label for="new-habit">New Habit:</label>
@@ -9,9 +9,9 @@
 <ul>
     {{#each Habit}}
     <li>
-        <p>Type: {{this.name}}</p>
-        <p>Habit: {{this.id}}</p>
-        <p>Display: {{this.displayGlobal}}
+        <ul>Type: {{this.name}}</ul>
+        <ul>Habit: {{this.id}}</ul>
+        <ul>Display: {{this.displayGlobal}}
             <label class="switch">
                 <input type="checkbox">
                 <span class="slider round"></span>
@@ -23,7 +23,7 @@
             Friday<input type="checkbox">
             Saturday<input type="checkbox">
             Sunday<input type="checkbox">
-        </p>
+        </ul>
     </li>
     {{/each}}
 </ul>
