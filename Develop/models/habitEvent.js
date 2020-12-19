@@ -8,8 +8,8 @@ module.exports = function (sequelize, DataTypes) {
     }, {
         freezeTableName: true
     });
-    // HabitEvent.associate = function (models) {
-    //     HabitEvent.hasOne(models.Habit);
-    // };
+    HabitEvent.associate = function (models) {
+        HabitEvent.belongsTo(models.Habit);
+    };
     return HabitEvent;
 }

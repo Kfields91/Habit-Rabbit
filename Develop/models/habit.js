@@ -15,8 +15,10 @@ module.exports = function (sequelize, DataTypes) {
         }, {
         freezeTableName: true
     });
-    // Habit.associate = function (models) {
-    //     Habit.hasOne(models.User);
-    // }
+    Habit.associate = function (models) {
+        Habit.belongsTo(models.User);
+        Habit.hasMany(models.HabitEvent);
+    }
+
     return Habit;
 }
