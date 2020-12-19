@@ -2,16 +2,16 @@ var express = require("express");
 var router = express.Router();
 var db = require("../models");
 
-router.get("/members", function (req, res) {
+router.use("/members", function (req, res) {
     db.Habit.findAll(
         {
             where:
                 //might need to tweak below
-                { User: id }
+                {}// User: HabitId}
         }
     ).then(function (data) {
         //https://stackoverflow.com/questions/59690923/handlebars-access-has-been-denied-to-resolve-the-property-from-because-it-is
-        const context = {
+        var context = {
             usersDocuments: data.map((x, i) => {
                 return {
                     name: x.name,

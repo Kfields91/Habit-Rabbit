@@ -4,4 +4,15 @@ $(document).ready(function() {
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.email);
   });
+
+  $("#submitBtn").on("click",function(){
+    let newHabit=$("#new-habit").val();
+    $.post("/api/members", newHabit);
+  });
+
+  //follow hot resutuaurant example
+
+  
+
+
 });

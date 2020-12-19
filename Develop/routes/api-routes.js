@@ -77,12 +77,12 @@ module.exports = function(app) {
   });
 
   //Post route for saving a new habit
-  app.post("/members", function(req, res) {
+  app.post("/api/members", function(req, res) {
     console.log(req.body);
     db.Habit.create({
-      title: req.body.title,//needs to be edited to math ours
-      body: req.body.body,//needs to be edited to math ours
-      category: req.body.category//needs to be edited to math ours
+      name: req.body.name,//needs to be edited to math ours
+      displayGlobal: req.body.displayGlobal,//needs to be edited to math ours
+      HabitEventId: req.body.category//needs to be edited to math ours
     })
       .then(function(dbHabits) {
         res.json(dbHabits);
