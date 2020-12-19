@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
         freezeTableName: true
     });
     HabitEvent.associate = function (models) {
-        HabitEvent.hasOne(models.Habit);
+        HabitEvent.belongsTo(models.Habit);
     };
     return HabitEvent;
 }

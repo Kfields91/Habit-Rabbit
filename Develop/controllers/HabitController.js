@@ -4,11 +4,7 @@ var db = require("../models");
 
 router.use("/members", function (req, res) {
     db.Habit.findAll(
-        {
-            where:
-                //might need to tweak below
-                {}// User: HabitId}
-        }
+        //need to enter a WHERE after fixing the foreign keys, reference where user is the one logged in somehow
     ).then(function (data) {
         //https://stackoverflow.com/questions/59690923/handlebars-access-has-been-denied-to-resolve-the-property-from-because-it-is
         var context = {
@@ -24,14 +20,12 @@ router.use("/members", function (req, res) {
     })
 });
 
-router.get("/displayGlobal", function (req, res) {
-    db.Habit.findAll(
-        {
-            where: {
-                displayGlobal: true
-            }
+router.get("/global", function (req, res) {
+    db.Habit.findAll({
+        where: {
+            displayGlobal: true
         }
-    ).then(function (data) {
+    }).then(function (data) {
         //https://stackoverflow.com/questions/59690923/handlebars-access-has-been-denied-to-resolve-the-property-from-because-it-is
         const context = {
             usersDocuments: data.map((x, i) => {
@@ -42,26 +36,14 @@ router.get("/displayGlobal", function (req, res) {
                 }
             })
         };
-        res.render("index", { Habit: context.usersDocuments });
+        res.render("global", { Habit: context.usersDocuments });
     })
 });
+
 router.post("/api/habits", function (req, res) {
     db.Habit.create({ name: req.body.name, displayGlobal: req.body.displayGlobal }).then(function (dbHabit) {
         res.json(dbHabit);
     })
 });
-
-//move this to HabitEventController.js, turn into a create and destroy for toggle
-router.put("/api/habits/:id", function (req, res) {
-    db.Habit.update(req.body,
-        {
-            where: {
-                id: req.body.id
-            }
-        })
-        .then(function (dbHabit) {
-            res.json(dbHabit);
-        })
-})
 
 module.exports = router;
