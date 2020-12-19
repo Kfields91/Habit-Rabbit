@@ -1,3 +1,5 @@
+var sequelize = require("sequelize");
+
 module.exports = function (sequelize, DataTypes) {
     var HabitEvent = sequelize.define("HabitEvent", {
         date: DataTypes.DATE

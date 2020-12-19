@@ -1,3 +1,4 @@
+
 module.exports = function (sequelize, DataTypes) {
     var Habit = sequelize.define("Habit", {
         name: {
