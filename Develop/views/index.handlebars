@@ -9,9 +9,9 @@
 <ul>
     {{#each Habit}}
     <li>
-        <p>Type: {{name}}</p>
-        <p>Habit: {{id}}</p>
-        <p>Display: {{displayGlobal}}
+        <p>Type: {{this.name}}</p>
+        <p>Habit: {{this.id}}</p>
+        <p>Display: {{this.displayGlobal}}
             <label class="switch">
                 <input type="checkbox">
                 <span class="slider round"></span>
