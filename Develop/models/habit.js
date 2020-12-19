@@ -6,7 +6,8 @@ module.exports = function (sequelize, DataTypes) {
 
         },
         displayGlobal: {
-            type: DataTypes.BOOLEAN
+            type: DataTypes.BOOLEAN,
+            defaultValue: true
         },
 
     },

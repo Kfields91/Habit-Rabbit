@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var db = require("../models");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 router.get("/members", function (req, res) {
     db.Habit.findAll(
@@ -40,10 +41,19 @@ router.get("/global", function (req, res) {
     })
 });
 
-router.post("/api/habits", function (req, res) {
-    db.Habit.create({ name: req.body.name, displayGlobal: req.body.displayGlobal }).then(function (dbHabit) {
-        res.json(dbHabit);
+router.post("/api/habits", isAuthenticated, function (req, res) {
+    db.Habit.create({
+        name: req.body.name,
+        displayGlobal: req.body.displayGlobal,
+        UserId: req.user.id
     })
+        .then(function (dbHabit) {
+            console.log("POST ROUTE CONTROLLER");
+            res.json(dbHabit);
+        }).catch(function (err) {
+            console.log(err);
+            res.status(500).end();
+        })
 });
 
 module.exports = router;
