@@ -3,7 +3,7 @@ var router = express.Router();
 var db = require("../models");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
-router.use("/members", function (req, res) {
+router.get("/members", function (req, res) {
     db.Habit.findAll(
         //need to enter a WHERE after fixing the foreign keys, reference where user is the one logged in somehow
     ).then(function (data) {
