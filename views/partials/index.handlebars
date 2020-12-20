@@ -1,36 +1,49 @@
-<h2 class="d-flex justify-content-center">Welcome {{this.user}}</h2>
+<h2 class="d-flex justify-content-center">Welcome {{this.User}}</h2>
 
 <div class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-md-6 col-md-offset-3">
             <br>
             <br>
-            <form>
-                <label for="new-habit">New Habit: </label><input type="text" id="new-habit" name="new-habit"><input
-                    type="submit" id="submitBtn" value="Submit">
+            <form class="d-flex justify-content-center">
+                <label for="new-habit"></label><input type="text" placeholder="Enter New Habit!" id="new-habit"
+                    style="border-color:lawngreen" name="new-habit"><input type="submit" id="submitBtn" value="Submit">
             </form>
             <br>
-            <br>
+            <hr>
             {{!-- <ul> --}}
                 {{#each Habit}}
-                <p>
-                <ul>
-                    <li>Type: {{this.name}}</li>
-                    <li>Habit: {{this.id}}</li>
-                    <li>Display: {{this.displayGlobal}}
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </li>
-                    Monday<input type="checkbox">
-                    Tuesday<input type="checkbox">
-                    Wednesday<input type="checkbox">
-                    Thursday<input type="checkbox">
-                    Friday<input type="checkbox">
-                    Saturday<input type="checkbox">
-                    Sunday<input type="checkbox">
-                </ul>
+                <h3>{{this.id}}.{{this.name}}</h3>
+                <p>Display:
+                    {{!-- {{this.displayGlobal}} --}}
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </p>
+                <div class="grid-container" style="display: inline-flex">
+                    <div class="grid-item">Monday
+                        <input type="checkbox">
+                    </div>
+                    <div class="grid-item">Tuesday
+                        <input type="checkbox">
+                    </div>
+                    <div class="grid-item">Wednesday
+                        <input type="checkbox">
+                    </div>
+                    <div class="grid-item">Thursday
+                        <input type="checkbox">
+                    </div>
+                    <div class="grid-item">Friday
+                        <input type="checkbox">
+                    </div>
+                    <div class="grid-item">Saturday
+                        <input type="checkbox">
+                    </div>
+                    <div class="grid-item">Sunday
+                        <input type="checkbox">
+                    </div>
+                </div>
                 </p>
                 {{/each}}
                 {{!--
