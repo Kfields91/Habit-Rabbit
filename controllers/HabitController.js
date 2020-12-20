@@ -17,7 +17,7 @@ router.get("/members", function (req, res) {
                 }
             })
         };
-        res.render("index", { Habit: context.usersDocuments });
+        res.render("partials/index", { Habit: context.usersDocuments });
     })
 });
 
@@ -37,7 +37,7 @@ router.get("/global", function (req, res) {
                 }
             })
         };
-        res.render("global", { Habit: context.usersDocuments });
+        res.render("partials/global", { Habit: context.usersDocuments });
     })
 });
 

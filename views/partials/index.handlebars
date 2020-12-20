@@ -1,0 +1,44 @@
+<h2 class="d-flex justify-content-center">Welcome {{this.user}}</h2>
+
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6 col-md-offset-3">
+            <br>
+            <br>
+            <form>
+                <label for="new-habit">New Habit: </label><input type="text" id="new-habit" name="new-habit"><input
+                    type="submit" id="submitBtn" value="Submit">
+            </form>
+            <br>
+            <br>
+            {{!-- <ul> --}}
+                {{#each Habit}}
+                <p>
+                <ul>
+                    <li>Type: {{this.name}}</li>
+                    <li>Habit: {{this.id}}</li>
+                    <li>Display: {{this.displayGlobal}}
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </li>
+                    Monday<input type="checkbox">
+                    Tuesday<input type="checkbox">
+                    Wednesday<input type="checkbox">
+                    Thursday<input type="checkbox">
+                    Friday<input type="checkbox">
+                    Saturday<input type="checkbox">
+                    Sunday<input type="checkbox">
+                </ul>
+                </p>
+                {{/each}}
+                {{!--
+            </ul> --}}
+
+        </div>
+    </div>
+</div>
+
+
+</container>
