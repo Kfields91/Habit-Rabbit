@@ -13,18 +13,19 @@ router.get("/members", function (req, res) {
                 return {
                     name: x.name,
                     id: x.id,
-                    displayGlobal: x.displayGlobal
+                    displayGlobal: x.displayGlobal,
+                    UserId: x.UserId
                 }
             })
         };
-        res.render("index", { Habit: context.usersDocuments });
+        res.render("partials/index", { Habit: context.usersDocuments });
     })
 });
 
 router.get("/global", function (req, res) {
     db.Habit.findAll({
         where: {
-            displayGlobal: true
+            displayGlobal: 1
         }
     }).then(function (data) {
         //https://stackoverflow.com/questions/59690923/handlebars-access-has-been-denied-to-resolve-the-property-from-because-it-is
@@ -33,11 +34,12 @@ router.get("/global", function (req, res) {
                 return {
                     name: x.name,
                     id: x.id,
-                    displayGlobal: x.displayGlobal
+                    displayGlobal: x.displayGlobal,
+                    UserId: x.UserId
                 }
             })
         };
-        res.render("global", { Habit: context.usersDocuments });
+        res.render("partials/global", { Habit: context.usersDocuments });
     })
 });
 
