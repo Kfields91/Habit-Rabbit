@@ -20,6 +20,8 @@
 
 Habit-Rabbit is a habit tracking app that offers the ability to add and track daily habits in order to promote self awareness. Our goal is to provide details that enable the user to adjust their habits according to their life goals.
 
+![habitRabbitGif](https://user-images.githubusercontent.com/68616301/102900690-81f72780-4421-11eb-8e8a-5a6882f13abf.gif)
+
 ### User Story
 
 AS A USER who wants to change bad habits
