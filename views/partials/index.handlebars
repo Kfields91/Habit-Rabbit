@@ -1,44 +1,66 @@
-<h2 class="d-flex justify-content-center">Welcome {{this.user}}</h2>
+<h2 class="d-flex justify-content-center">Welcome {{User}}</h2>
 
 <div class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-md-6 col-md-offset-3">
             <br>
             <br>
-            <form>
-                <label for="new-habit">New Habit: </label><input type="text" id="new-habit" name="new-habit"><input
-                    type="submit" id="submitBtn" value="Submit">
+            <form class="d-flex justify-content-center">
+                <label for="new-habit"></label><input type="text" placeholder="Enter New Habit!" id="new-habit"
+                    style="border-color:lawngreen" name="new-habit"><input type="submit" id="submitBtn" value="Submit">
             </form>
             <br>
-            <br>
+            <hr>
             {{!-- <ul> --}}
-                {{#each Habit}}
-                <p>
-                <ul>
-                    <li>Type: {{this.name}}</li>
-                    <li>Habit: {{this.id}}</li>
-                    <li>Display: {{this.displayGlobal}}
+                <div class="div-container">
+                    {{#each Habit}}
+                    <h3>{{this.id}}.{{this.name}}</h3>
+                    <p>Display:
+                        {{!-- {{this.displayGlobal}} --}}
                         <label class="switch">
-                            <input type="checkbox">
+                            <input type="checkbox" id="globalDisplay" value="globalDisplay">
                             <span class="slider round"></span>
                         </label>
-                    </li>
-                    Monday<input type="checkbox">
-                    Tuesday<input type="checkbox">
-                    Wednesday<input type="checkbox">
-                    Thursday<input type="checkbox">
-                    Friday<input type="checkbox">
-                    Saturday<input type="checkbox">
-                    Sunday<input type="checkbox">
-                </ul>
-                </p>
-                {{/each}}
-                {{!--
-            </ul> --}}
+                    </p>
+                    <div id="grid-container" style="display: inline-flex">
+                        <div id="grid-item">Monday
+                            <input type="checkbox" id="checkbox" name="Monday" value="Monday" class="Monday"
+                                onclick="func();">
+                        </div>
+                        <div id="grid-item">Tuesday
+                            <input type="checkbox" id="checkbox" name="Tuesday" value="Tuesday" class="Tuesday"
+                                onclick="func();">
+                        </div>
+                        <div id="grid-item">Wednesday
+                            <input type="checkbox" id="checkbox" name="Wednesday" value="Wednesday" class="Wednesday"
+                                onclick="func();">
+                        </div>
+                        <div id="grid-item">Thursday
+                            <input type="checkbox" id="checkbox" name="Thursday" value="Thursday" class="Thursday"
+                                onclick="func();">
+                        </div>
+                        <div id="grid-item">Friday
+                            <input type="checkbox" id="checkbox" name="Friday" value="Friday" class="Friday"
+                                onclick="func();">
+                        </div>
+                        <div id="grid-item">Saturday
+                            <input type="checkbox" id="checkbox" name="Saturday" value="Saturday" class="Saturday"
+                                onclick="func();">
+                        </div>
+                        <div id="grid-item">Sunday
+                            <input type="checkbox" id="checkbox" name="Sunday" value="Sunday" class="Sunday"
+                                onclick="func();">
+                        </div>
+                    </div>
+                    </p>
+                    {{/each}}
 
+                </div>
         </div>
     </div>
 </div>
 
 
 </container>
+{{!--
+<script src="../../public/js/members.js"></script> --}}
