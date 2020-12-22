@@ -9,8 +9,8 @@
                 <input type="text" placeholder="Enter New Habit!" id="new-habit" style="border-color:lawngreen"
                     name="new-habit">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="globalRadio" id="globalRadio" value="option1">
-                    <label class="form-check-label" for="globalRadio"> Make public </label>
+                    <input class="form-check-input" type="checkbox" id="globalCheck" value="1">
+                    <label class="form-check-label" for="globalCheck">Make public</label>
                 </div>
                 <input type="submit" id="submitBtn" value="Submit">
             </form>
@@ -20,10 +20,10 @@
                 <div class="div-container">
                     {{#each Habit}}
                     <h3>{{this.id}}.{{this.name}}</h3>
-                    <p>Display:
+                    {{!-- <p>Display: --}}
                         {{!-- {{this.displayGlobal}} --}}
-                        <label class="switch">
-                            <input type="checkbox" id="globalDisplay" value="globalDisplay">
+                        {{!-- <label class="switch"> --}}
+                            {{!-- <input type="checkbox" id="globalDisplay" value="globalDisplay"> --}}
                             <span class="slider round"></span>
                         </label>
                     </p>

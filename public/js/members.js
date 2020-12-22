@@ -8,13 +8,15 @@ $(document).ready(function () {
     event.preventDefault();
     console.log("got a button click");
     let newHabit = $("#new-habit").val();
+    let globalCheck = $("#globalCheck").is(':checked');
     let habitObj = {
       name: newHabit,
-      displayGlobal: true,
+      displayGlobal: globalCheck,
     };
     $.post("/api/habits", habitObj).then(
       function (result) {
         window.location.reload();
+
       },
       function (err) {
         console.log(err);
