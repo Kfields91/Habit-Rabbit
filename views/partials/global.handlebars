@@ -1,5 +1,9 @@
 <h2>Welcome To The Habit-Rabbit Community Page</h2>
 
 <ul>
-    {{#each user}}
+    {{#each Habit}}
+    <li>
+        <h3>{{this.UserId}} is working on {{this.name}}</h3>
+    </li>
+    {{/each}}
 </ul>
