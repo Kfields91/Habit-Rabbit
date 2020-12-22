@@ -1,57 +1,70 @@
-<h2 class="d-flex justify-content-center">Welcome {{this.User}}</h2>
-
+<h2 class="d-flex justify-content-center">Welcome {{User}}</h2>
 <div class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-md-6 col-md-offset-3">
             <br>
             <br>
             <form class="d-flex justify-content-center">
-                <label for="new-habit"></label><input type="text" placeholder="Enter New Habit!" id="new-habit"
-                    style="border-color:lawngreen" name="new-habit"><input type="submit" id="submitBtn" value="Submit">
+                <input type="text" placeholder="Enter New Habit!" id="new-habit" style="border-color:lawngreen"
+                    name="new-habit">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="globalCheck" value="1">
+                    <label class="form-check-label" for="globalCheck">Make public</label>
+                </div>
+                <input type="submit" id="submitBtn" value="Submit">
             </form>
             <br>
             <hr>
             {{!-- <ul> --}}
-                {{#each Habit}}
-                <h3>{{this.id}}.{{this.name}}</h3>
-                <p>Display:
-                    {{!-- {{this.displayGlobal}} --}}
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                </p>
-                <div class="grid-container" style="display: inline-flex">
-                    <div class="grid-item">Monday
-                        <input type="checkbox">
+                <div class="div-container">
+                    {{#each Habit}}
+                    <h3>{{this.id}}.{{this.name}}</h3>
+                    {{!-- <p>Display: --}}
+                        {{!-- {{this.displayGlobal}} --}}
+                        {{!-- <label class="switch"> --}}
+                            {{!-- <input type="checkbox" id="globalDisplay" value="globalDisplay"> --}}
+                            <span class="slider round"></span>
+                        </label>
+                    </p>
+                    <div id="grid-container" style="display: inline-flex">
+                        <div id="grid-item">Monday
+                            <input type="checkbox" id="checkbox" name="Monday" value="Monday" class="Monday"
+                                onclick="func();">
+                        </div>
+                        <div id="grid-item">Tuesday
+                            <input type="checkbox" id="checkbox" name="Tuesday" value="Tuesday" class="Tuesday"
+                                onclick="func();">
+                        </div>
+                        <div id="grid-item">Wednesday
+                            <input type="checkbox" id="checkbox" name="Wednesday" value="Wednesday" class="Wednesday"
+                                onclick="func();">
+                        </div>
+                        <div id="grid-item">Thursday
+                            <input type="checkbox" id="checkbox" name="Thursday" value="Thursday" class="Thursday"
+                                onclick="func();">
+                        </div>
+                        <div id="grid-item">Friday
+                            <input type="checkbox" id="checkbox" name="Friday" value="Friday" class="Friday"
+                                onclick="func();">
+                        </div>
+                        <div id="grid-item">Saturday
+                            <input type="checkbox" id="checkbox" name="Saturday" value="Saturday" class="Saturday"
+                                onclick="func();">
+                        </div>
+                        <div id="grid-item">Sunday
+                            <input type="checkbox" id="checkbox" name="Sunday" value="Sunday" class="Sunday"
+                                onclick="func();">
+                        </div>
                     </div>
-                    <div class="grid-item">Tuesday
-                        <input type="checkbox">
-                    </div>
-                    <div class="grid-item">Wednesday
-                        <input type="checkbox">
-                    </div>
-                    <div class="grid-item">Thursday
-                        <input type="checkbox">
-                    </div>
-                    <div class="grid-item">Friday
-                        <input type="checkbox">
-                    </div>
-                    <div class="grid-item">Saturday
-                        <input type="checkbox">
-                    </div>
-                    <div class="grid-item">Sunday
-                        <input type="checkbox">
-                    </div>
-                </div>
-                </p>
-                {{/each}}
-                {{!--
-            </ul> --}}
+                    </p>
+                    {{/each}}
 
+                </div>
         </div>
     </div>
 </div>
 
 
 </container>
+{{!--
+<script src="../../public/js/members.js"></script> --}}

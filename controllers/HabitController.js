@@ -13,7 +13,8 @@ router.get("/members", function (req, res) {
                 return {
                     name: x.name,
                     id: x.id,
-                    displayGlobal: x.displayGlobal
+                    displayGlobal: x.displayGlobal,
+                    UserId: x.UserId
                 }
             })
         };
@@ -24,7 +25,7 @@ router.get("/members", function (req, res) {
 router.get("/global", function (req, res) {
     db.Habit.findAll({
         where: {
-            displayGlobal: true
+            displayGlobal: 1
         }
     }).then(function (data) {
         //https://stackoverflow.com/questions/59690923/handlebars-access-has-been-denied-to-resolve-the-property-from-because-it-is
@@ -33,7 +34,8 @@ router.get("/global", function (req, res) {
                 return {
                     name: x.name,
                     id: x.id,
-                    displayGlobal: x.displayGlobal
+                    displayGlobal: x.displayGlobal,
+                    UserId: x.UserId
                 }
             })
         };
